@@ -41,7 +41,7 @@ def get_all_artists(spotify):
     artists = response["artists"]["items"]
 
     with Progress() as progress:
-        load_artists_task = progress.add_task("[red]Artists...", total=total)    
+        load_artists_task = progress.add_task("[red]Loading artists...", total=total)    
         while len(artists) < total:
             response = spotify.current_user_followed_artists(limit=50, after=after)
             after = response["artists"]["cursors"]["after"]
